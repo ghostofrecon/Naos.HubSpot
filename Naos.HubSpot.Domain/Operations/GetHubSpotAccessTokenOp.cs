@@ -1,7 +1,7 @@
 ﻿namespace Naos.HubSpot.Domain.Operations
 {
     using System;
-    using Naos.HubSpot.Domain.Models;
+    using Naos.HubSpot.Domain.Contracts;
     using Naos.Protocol.Domain;
     using OBeautifulCode.Assertion.Recipes;
 

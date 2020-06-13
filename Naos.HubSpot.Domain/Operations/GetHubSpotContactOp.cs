@@ -5,10 +5,10 @@
 namespace Naos.HubSpot.Domain.Operations
 {
     using System;
-    using Naos.HubSpot.Domain.Models;
-    using Naos.HubSpot.Domain.Models.ModelEnums;
-    using Naos.HubSpot.Domain.Models.QueryModels;
-    using Naos.HubSpot.Domain.Models.RequestQueryModels;
+    using Naos.HubSpot.Domain.Contracts;
+    using Naos.HubSpot.Domain.Contracts.ContactsApi.ModelEnums;
+    using Naos.HubSpot.Domain.Contracts.ModelEnums;
+    using Naos.HubSpot.Domain.Contracts.ContactsApi.QueryModels;
     using Naos.Protocol.Domain;
     using OBeautifulCode.Assertion.Recipes;
 

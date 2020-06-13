@@ -2,7 +2,7 @@
 {
     using System.Threading.Tasks;
     using Naos.FluentUri;
-    using Naos.HubSpot.Domain.Models.ResponseModels;
+    using Naos.HubSpot.Domain.Contracts.ContactsApi.ResponseContracts;
     using Naos.HubSpot.Domain.Operations;
     using Naos.HubSpot.Domain.Protocols;
     using Naos.HubSpot.Feature.ApiCommunicator.UriStrategies;

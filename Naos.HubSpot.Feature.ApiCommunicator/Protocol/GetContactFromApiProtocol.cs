@@ -1,7 +1,7 @@
 ﻿namespace Naos.HubSpot.Feature.ApiCommunicator.Protocol
 {
     using System.Threading.Tasks;
-    using Naos.HubSpot.Domain.Models;
+    using Naos.HubSpot.Domain.Contracts;
     using Naos.HubSpot.Domain.Operations;
     using Naos.HubSpot.Domain.Protocols;
     using Naos.HubSpot.Feature.ApiCommunicator.UriStrategies;
