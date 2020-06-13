@@ -35,7 +35,7 @@ namespace Naos.HubSpot.Domain.Models
         /// <param name="properties">The properties.</param>
         public Contact(
             string                              email,
-            string                              vid,
+            int                              vid,
             IReadOnlyDictionary<string, string> properties)
         {
             email.MustForArg(nameof(email)).NotBeNullNorWhiteSpace();
@@ -59,7 +59,7 @@ namespace Naos.HubSpot.Domain.Models
         /// Gets the vid.
         /// </summary>
         /// <value>The vid.</value>
-        public string Vid { get; private set; }
+        public int  Vid { get; private set; }
 
         /// <summary>
         /// Gets the properties.

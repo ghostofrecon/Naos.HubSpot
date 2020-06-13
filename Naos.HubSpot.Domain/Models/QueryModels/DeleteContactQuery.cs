@@ -14,13 +14,13 @@ namespace Naos.HubSpot.Domain.Models.QueryModels
         /// <summary>
         /// 
         /// </summary>
-        public string Vid { get; set; }
+        public int Vid { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="vid"></param>
-        public DeleteContactQuery(string vid)
+        public DeleteContactQuery(int vid)
         {
             this.Vid = vid;
         }

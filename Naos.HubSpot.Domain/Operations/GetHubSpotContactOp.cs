@@ -7,6 +7,7 @@ namespace Naos.HubSpot.Domain.Operations
     using System;
     using Naos.HubSpot.Domain.Models;
     using Naos.HubSpot.Domain.Models.ModelEnums;
+    using Naos.HubSpot.Domain.Models.QueryModels;
     using Naos.HubSpot.Domain.Models.RequestQueryModels;
     using Naos.Protocol.Domain;
     using OBeautifulCode.Assertion.Recipes;
@@ -42,13 +43,13 @@ namespace Naos.HubSpot.Domain.Operations
         /// </param>
         public GetHubSpotContactOp(
             string email,
-            string vid,
+            int vid,
             string[] properties,
             PropertyMode propertyMode = PropertyMode.value_and_history,
             FormSubmissionMode formSubmissionMode = FormSubmissionMode.all,
             bool showListMembership = true)
         {
-            (string.IsNullOrWhiteSpace(email) && string.IsNullOrWhiteSpace(vid)).MustForArg(
+            (string.IsNullOrWhiteSpace(email)).MustForArg(
                 FormattableString.Invariant($"Both {nameof(email)} and {nameof(vid)} cannot be null"));
             this.Email = email;
             this.Vid = vid;
@@ -56,7 +57,7 @@ namespace Naos.HubSpot.Domain.Operations
             this.ShowListMembership = showListMembership;
             this.Properties = properties;
             this.PropertyMode = propertyMode;
-            this.Query = new GetContactQuery(this.Vid);
+            //this.Query = new GetContactQuery(new string[]{this.Vid});
 
         }
 
@@ -73,7 +74,7 @@ namespace Naos.HubSpot.Domain.Operations
         /// <summary>
         /// Gets the Vid Property.
         /// </summary>
-        public string Vid { get; private set; }
+        public int Vid { get; private set; }
 
         /// <summary>
         /// Gets or sets the properties that will be included in the response.

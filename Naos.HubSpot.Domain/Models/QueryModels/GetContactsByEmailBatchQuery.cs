@@ -1,19 +1,20 @@
-﻿// <copyright file="GetContactQuery.cs" company="Naos Project">
-//    Copyright (c) Naos Project 2019. All rights reserved.
-// </copyright>
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Naos.HubSpot.Domain.Models.QueryModels
 {
-    using System.Collections.Generic;
     using Naos.HubSpot.Domain.Models.ModelEnums;
 
     /// <summary>
-    /// The query model for the GetContactProtocol.
+    /// Represents the query required to get multiple contacts by email.
     /// </summary>
-    public class GetContactQuery
+    public class GetContactsByEmailBatchQuery
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="GetContactQuery"/> class.
+        /// Initializes a new instance of the <see cref="GetContactsByEmailBatchQuery"/> class.
         ///   </summary>
         /// <param name="props">
         ///     By default, all valued properties will be included. If you include the "property" parameter,
@@ -34,33 +35,34 @@ namespace Naos.HubSpot.Domain.Models.QueryModels
         ///     Boolean "true" or "false" to indicate whether current list memberships should be fetched for the contact.
         ///     Default is true.
         /// </param>
-        public GetContactQuery(string[] props, PropertyMode propertyMode = PropertyMode.value_and_history, FormSubmissionMode formSubmissionMode = FormSubmissionMode.all, bool showListMemberships = true)
+        public GetContactsByEmailBatchQuery(string[] props, PropertyMode propertyMode = PropertyMode.value_and_history, FormSubmissionMode formSubmissionMode = FormSubmissionMode.all, bool showListMemberships = true)
         {
-            this.properties = props;
-            this.propertyMode = propertyMode.ToString();
-            this.formSubmissionMode = formSubmissionMode.ToString();
-            this.showListMemberships = showListMemberships;
+            this.Properties = props;
+            this.PropertyMode = propertyMode;
+            this.FormSubmissionMode = formSubmissionMode.ToString();
+            this.ShowListMemberships = showListMemberships;
         }
 
         /// <summary>
-        /// private field for the properties array.
+        /// Gets or sets private field for the properties array.
         /// </summary>
-        private readonly string[] properties;
+        public string[] Properties { get;set; }
 
         /// <summary>
-        /// private field for the property mode enum.
+        /// Gets or sets public field for the property mode enum.
         /// </summary>
-        private readonly string propertyMode;
+        public PropertyMode PropertyMode { get;set; }
 
         /// <summary>
-        /// private field for the form submission mode enum.
+        /// Gets or sets private field for the form submission mode enum.
         /// </summary>
-        private readonly string formSubmissionMode;
+        public string FormSubmissionMode { get; set; }
 
         /// <summary>
-        /// private field for the show list membership bool.
+        /// Gets or sets a value indicating whether private field for the show list membership bool.
         /// </summary>
-        private readonly bool showListMemberships;
+        public bool ShowListMemberships { get; set; }
 
+        
     }
 }

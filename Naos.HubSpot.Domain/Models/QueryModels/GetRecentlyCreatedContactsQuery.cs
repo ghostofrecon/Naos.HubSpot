@@ -1,21 +1,31 @@
-﻿// <copyright file="GetAllContactsQuery.cs" company="Naos Project">
-//    Copyright (c) Naos Project 2019. All rights reserved.
-// </copyright>
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Naos.HubSpot.Domain.Models.QueryModels
 {
-    using System.Collections.Generic;
     using Naos.HubSpot.Domain.Models.ModelEnums;
 
     /// <summary>
-    /// The object representing the query to get all contacts.
+    /// Represents the query parameters required to get recently created contacts.
     /// </summary>
-    public class GetAllContactsQuery
+    public class GetRecentlyCreatedContactsQuery
     {
         /// <summary>
         /// Gets the  parameter that lets you specify the amount of contacts to return in your API call. The default for this parameter (if it isn't specified) is 20 contacts. The maximum amount of contacts you can have returned to you via this parameter is 100.
         /// </summary>
         public string Count { get; private set; }
+
+
+        /// <summary>
+        /// Gets or sets the time offset.
+        /// </summary>
+        /// <value>
+        /// The time offset.
+        /// </value>
+        public string TimeOffset { get; set; }
 
         /// <summary>
         /// Gets used to page through the contacts. Every call to this endpoint will return a vid-offset value. This value is used in the VidOffset parameter of the next call to get the next page of contacts.
@@ -45,7 +55,7 @@ namespace Naos.HubSpot.Domain.Models.QueryModels
         public bool ShowListMemberships { get; private set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GetAllContactsQuery"/> class.
+        /// Initializes a new instance of the <see cref="GetRecentlyCreatedContactsQuery"/> class.
         /// </summary>
         /// <param name="count">The number of records to receive default is 20, max is 100.</param>
         /// <param name="vidOffset">The vid offset of the previous call if any.  This will return a new "page" of contacts.</param>
@@ -53,7 +63,8 @@ namespace Naos.HubSpot.Domain.Models.QueryModels
         /// <param name="propertyMode">Determines whether the history of the properties are returned along with the values or just the values.</param>
         /// <param name="formSubmissionMode">Designates which form submission should be fetched.  The default is "newest".</param>
         /// <param name="showListMemberships">Indicates whether or not the response will contain all list memberships for each contact.</param>
-        public GetAllContactsQuery(
+        public GetRecentlyCreatedContactsQuery(
+            string timeOffset, 
             int count = 20,
             int vidOffset = 0,
             string[] property = null,
@@ -63,30 +74,12 @@ namespace Naos.HubSpot.Domain.Models.QueryModels
         {
             this.Count = count.ToString();
             this.VidOffset = vidOffset;
+            this.TimeOffset = timeOffset;
             this.Property = property;
             this.PropertyMode = propertyMode.ToString();
             this.FormSubmissionMode = formSubmissionMode.ToString();
             this.ShowListMemberships = showListMemberships;
         }
-
-        /// <summary>
-        /// Generates the query string with the information required.
-        /// </summary>
-        /// <returns>A query string with the desired params.</returns>
-        public string GenerateQueryString()
-        {
-            var paramList = new List<string>
-            {
-                $"Count={this.Count}",
-                string.IsNullOrWhiteSpace(this.VidOffset) ? null : $"VidOffset={this.VidOffset}",
-                (this.Property.Length > 0) ? null : $"property={string.Join("property=", this.Property)}",
-                string.IsNullOrWhiteSpace(this.PropertyMode) ? null : $"propertyMode={this.PropertyMode}",
-                string.IsNullOrWhiteSpace(this.FormSubmissionMode)
-                ? null
-                : $"formSubmissionMode={this.FormSubmissionMode}",
-                this.ShowListMemberships ? null : $"&showListMemberships={this.ShowListMemberships.ToString().ToLower()}",
-            };
-            return $"?{string.Join("&", paramList)}";
-        }
+    }
     }
 }

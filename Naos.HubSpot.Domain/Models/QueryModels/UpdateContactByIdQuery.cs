@@ -8,14 +8,14 @@
         /// <summary>
         /// Gets or sets the VID of the contact to update.
         /// </summary>
-        public string Vid { get; set; }
+        public int Vid { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateContactByIdQuery"/> class.
         /// Constructs the object representing the query parameters for the update contact operation.
         /// </summary>
         /// <param name="vid">the VID of the contact to update.</param>
-        public UpdateContactByIdQuery(string vid)
+        public UpdateContactByIdQuery(int vid)
         {
             this.Vid = vid;
         }
