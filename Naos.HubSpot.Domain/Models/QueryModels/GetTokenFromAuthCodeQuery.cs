@@ -2,7 +2,7 @@
 //    Copyright (c) Naos Project 2019. All rights reserved.
 // </copyright>
 
-namespace Naos.HubSpot.Domain.Models.PostModels
+namespace Naos.HubSpot.Domain.Models.QueryModels
 {
     using System.Text;
 

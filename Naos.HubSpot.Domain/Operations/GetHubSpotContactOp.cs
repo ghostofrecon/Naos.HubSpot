@@ -7,7 +7,7 @@ namespace Naos.HubSpot.Domain.Operations
     using System;
     using Naos.HubSpot.Domain.Models;
     using Naos.HubSpot.Domain.Models.ModelEnums;
-    using Naos.HubSpot.Domain.Models.QueryModels;
+    using Naos.HubSpot.Domain.Models.RequestQueryModels;
     using Naos.Protocol.Domain;
     using OBeautifulCode.Assertion.Recipes;
 

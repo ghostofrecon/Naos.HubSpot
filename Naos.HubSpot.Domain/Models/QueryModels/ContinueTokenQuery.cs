@@ -1,26 +1,26 @@
-﻿// <copyright file="ContinueTokenPostModel.cs" company="Naos Project">
+﻿// <copyright file="ContinueTokenBodyModel.cs" company="Naos Project">
 //    Copyright (c) Naos Project 2019. All rights reserved.
 // </copyright>
-namespace Naos.HubSpot.Domain.PostModels
+namespace Naos.HubSpot.Domain.QueryModels
 {
     using System.Text;
 
     /// <summary>
     /// The model defining the post object for for the GetAccessToken protocol.
     /// </summary>
-    public class ContinueTokenPostModel
+    public class ContinueTokenQuery
     {
         private readonly string clientId;
         private readonly string clientSecret;
         private readonly string refreshToken;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ContinueTokenPostModel"/> class.
+        /// Initializes a new instance of the <see cref="ContinueTokenQuery"/> class.
         /// </summary>
         /// <param name="clientId">The client ID of the application.</param>
         /// <param name="clientSecret">The client secret of the application.</param>
         /// <param name="refreshToken">The user's refresh token.</param>
-        public ContinueTokenPostModel(string clientId, string clientSecret, string refreshToken)
+        public ContinueTokenQuery(string clientId, string clientSecret, string refreshToken)
         {
             this.clientId = clientId;
             this.clientSecret = clientSecret;

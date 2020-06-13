@@ -5,7 +5,6 @@
 namespace Naos.HubSpot.Domain.Models.QueryModels
 {
     using System.Collections.Generic;
-    using System.Text;
     using Naos.HubSpot.Domain.Models.ModelEnums;
 
     /// <summary>
